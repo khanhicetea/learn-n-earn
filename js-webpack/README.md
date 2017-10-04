@@ -1,5 +1,7 @@
 # JS : Webpack
 
+Learn from https://webpack.js.org/guides/getting-started/
+
 ```bash
 npm install
 ```
