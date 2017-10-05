@@ -6,7 +6,7 @@ Learn from https://webpack.js.org/guides/getting-started/
 npm install
 ```
 
-## Day 1
+## Day 1 [51ede10](https://github.com/khanhicetea/learn-n-earn/commit/51ede10678b1d63dc57cea2556cb225c86b27853)
 
 **webpack.config.js**
 
@@ -38,7 +38,7 @@ $ ./node_modules/.bin/webpack --config webpack.config.js
 
 ## Day 2
 
-### Import assets
+### Import assets [07591ed](https://github.com/khanhicetea/learn-n-earn/commit/07591ed6f8398827e3e1ff22c49b005c262206d8)
 
 - **CSS file** : use `style-loader` and `css-loader`
 - **Image file** : use `file-loader`
@@ -71,7 +71,7 @@ module: {
   }
 ```
 
-### Dynamic output and entry
+### Dynamic output and entry [d543b28](https://github.com/khanhicetea/learn-n-earn/commit/d543b28987f6c9563ed0a967116e1b190c5ea949)
 
 `entry` config can be a dictionary where key is entry name and value is entry file path
 `output.filename` could use `[name]` in syntax to generate dynamic output filename
@@ -116,7 +116,7 @@ plugins: [
 
 ### Development
 
-#### Source map
+#### Source map [4eea0dc](https://github.com/khanhicetea/learn-n-earn/commit/4eea0dc3e0ffe570c14887cd56a2a5bf6966edc8)
 
 To enable source map for js and css file, use `inline-source-map` option in `devtool` config
 
@@ -130,13 +130,13 @@ plugins: [
 
 > ONLY USE THIS OPTION FOR DEVELOPMENT MODE
 
-#### Development server (watch file changes)
+#### Development server (watch file changes) [a3a2cee](https://github.com/khanhicetea/learn-n-earn/commit/a3a2cee61c63b42babeee68e183b57254f130388)
 
 - **watch mode** : add option `--watch` to `webpack` cli run command
 - **webpack-dev-server** : use npm package `webpack-dev-server` and add `devServer: { contentBase: './dist' }` to webpack config, when start a dev server use another command instead `webpack-dev-server --open`
 - **express webpack-dev-middleware** : use [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) as Express middleware
 
-### Ready for production
+### Ready for production [1ddcee3](https://github.com/khanhicetea/learn-n-earn/commit/1ddcee368dee73a09a577f079d8eec2e6153cb61)
 
 #### Tree shaking
 
@@ -158,7 +158,7 @@ plugins: [
 
 > ONLY USE IN PRODUCTION WEBPACK CONFIG
 
-### Setup multi environments
+### Setup multi environments [a2d0cc9](https://github.com/khanhicetea/learn-n-earn/commit/a2d0cc98b3e64af02cc735a9d888ed5948e5673f)
 
 ```bash
 $ npm install --save-dev webpack-merge
