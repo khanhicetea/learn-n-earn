@@ -113,3 +113,17 @@ plugins: [
   new HtmlWebpackPlugin(['dist']),
 ],
 ```
+
+### Development
+
+To enable source map for js and css file, use `inline-source-map` option in `devtool` config
+
+```js
+...
+devtool: 'inline-source-map',
+plugins: [
+  ...
+],
+```
+
+> ONLY USE THIS FOR DEVELOPMENT MODE
