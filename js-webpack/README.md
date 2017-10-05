@@ -43,6 +43,7 @@ To import
 - **CSS file** : use `style-loader` and `css-loader`
 - **Image file** : use `file-loader`
 - **WebFont file** : use `file-loader`
+- **Data file** use `json-loader`, `xml-loader` or `csv-loader`
 
 ```js
 module: {
