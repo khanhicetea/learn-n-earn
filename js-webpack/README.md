@@ -116,6 +116,8 @@ plugins: [
 
 ### Development
 
+#### Source map
+
 To enable source map for js and css file, use `inline-source-map` option in `devtool` config
 
 ```js
@@ -127,3 +129,14 @@ plugins: [
 ```
 
 > ONLY USE THIS FOR DEVELOPMENT MODE
+
+#### Development server (watch file changes)
+
+- **watch mode** : add option `--watch` to `webpack` cli run command
+- **webpack-dev-server** : use npm package `webpack-dev-server` and add `devServer: { contentBase: './dist' }` to webpack config, when start a dev server use another command instead `webpack-dev-server --open`
+- **express webpack-dev-middleware** : use [webpack-dev-middleware](https://www.npmjs.com/package/webpack-dev-middleware) as Express middleware
+
+### Ready for production
+
+#### Tree shaking
+
