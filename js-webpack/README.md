@@ -128,7 +128,7 @@ plugins: [
 ],
 ```
 
-> ONLY USE THIS FOR DEVELOPMENT MODE
+> ONLY USE THIS OPTION FOR DEVELOPMENT MODE
 
 #### Development server (watch file changes)
 
@@ -139,4 +139,28 @@ plugins: [
 ### Ready for production
 
 #### Tree shaking
+
+**Tree shaking** is a term commonly used in the JavaScript context for dead-code elimination. It relies on the static structure of **ES2015** module syntax, i.e. `import` and `export`.
+
+```bash
+$ npm install --save-dev uglifyjs-webpack-plugin
+```
+
+```js
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+...
+plugins: [
+    ...
+    new UglifyJSPlugin(),
+]
+```
+
+> ONLY USE IN PRODUCTION WEBPACK CONFIG
+
+### Setup multi environments
+
+```bash
+$ npm install --save-dev webpack-merge
+```
 
