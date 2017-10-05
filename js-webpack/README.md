@@ -6,7 +6,7 @@ Learn from https://webpack.js.org/guides/getting-started/
 npm install
 ```
 
-## Day 1 [51ede10](https://github.com/khanhicetea/learn-n-earn/commit/51ede10678b1d63dc57cea2556cb225c86b27853)
+## Day 1 >> $1https://github.com/khanhicetea/learn-n-earn/commit/51ede10678b1d63dc57cea2556cb225c86b27853)
 
 **webpack.config.js**
 
