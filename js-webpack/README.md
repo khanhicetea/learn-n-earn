@@ -38,7 +38,7 @@ $ ./node_modules/.bin/webpack --config webpack.config.js
 
 ## Day 2
 
-To import 
+### Import assets
 
 - **CSS file** : use `style-loader` and `css-loader`
 - **Image file** : use `file-loader`
@@ -69,4 +69,47 @@ module: {
       }
     ]
   }
+```
+
+### Dynamic output and entry
+
+`entry` config can be a dictionary where key is entry name and value is entry file path
+`output.filename` could use `[name]` in syntax to generate dynamic output filename
+
+```js
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js'
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+### HtmlWebpackPlugin
+
+`HtmlWebpackPlugin` by default will generate its own `index.html` file, even though we already have one in the `dist/` folder
+
+```bash
+npm install html-webpack-plugin --save-dev
+```
+
+### Cleaning /dist folder
+
+To clean up `dist` folder automatically !
+
+```bash
+npm install clean-webpack-plugin --save-dev
+```
+
+```js
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+...
+plugins: [
+  new HtmlWebpackPlugin(['dist']),
+],
 ```
