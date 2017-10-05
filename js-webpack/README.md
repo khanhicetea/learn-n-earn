@@ -164,3 +164,97 @@ plugins: [
 $ npm install --save-dev webpack-merge
 ```
 
+**webpack.common.js**
+
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js'
+  },
+  plugins: [
+    new HtmlWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      title: 'Output Management'
+    }),
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};
+```
+
+**webpack.dev.js**
+
+```js
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    devtool: 'inline-source-map',
+    devServer: {
+      contentBase: './dist'
+    }
+});
+```
+
+**webpack.prod.js**
+
+```js
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+module.exports = merge(common, {
+    plugins: [
+        new UglifyJSPlugin()
+    ]
+});
+```
+
+**package.json**
+
+```json
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --open --config webpack.dev.js"
+  }
+```
+
+**Run command**
+
+- `npm run dev` : running dev server with hot reload
+- `npm run build` : build production dist
+
+### Specify the Environment
+
+Many libraries will key off the `process.env.NODE_ENV` variable to determine what should be included in the library. We can use webpack's built in `DefinePlugin` to define this variable for all our dependencies
+
+**webpack.prod.js**
+
+```js
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+module.exports = merge(common, {
+  plugins: [
+      new UglifyJSPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production')
+        }
+      })
+  ]
+});
+```
+
+------------------------------------
+
+============ **LET'S PACK THE FUCKING WEB !** ============

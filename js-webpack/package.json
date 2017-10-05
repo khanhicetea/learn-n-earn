@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server --open",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
