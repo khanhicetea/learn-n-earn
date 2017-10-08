@@ -1,26 +1,3 @@
-# TypeScript
-
-## Install TypeScript and TSLint
-
-```bash
-$ npm install -g typescript tslint
-```
-
-## Compile ts files on changes
-
-```bash
-$ tsc -w
-```
-
-## Recommended editor
-
-Use **VisualStudioCode**
-
-## Basics
-
-View **day2.ts** file
-
-```ts
 // Data types in TypeScript
 let a: boolean = false;
 let b: number = 42;
@@ -174,4 +151,3 @@ console.log(helloString);
 
 // WELL DONE
 console.log("Well done !!!! WELCOME TO TYPESCRIPT !!!");
-```
