@@ -72,6 +72,13 @@ cubicEasing = function (currentTime, startValue, endValue, duration) {
     var distance = endValue - startValue;
     return distance * t * t * t + startValue;
 };
+// Short interface for function
+var f5 = function (x) { console.log(x); };
+f5(123);
+var f6 = function (x) { console.log(x); };
+f6(456);
+var f7 = function () { console.log('Inferred interface'); };
+f7();
 // Classes
 var Point = /** @class */ (function () {
     function Point(x, y) {
