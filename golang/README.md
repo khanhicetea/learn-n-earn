@@ -64,7 +64,7 @@ func pythagore(a float64, b float64) (float64) { // func [function name]( ...par
 func goToTypes() {
 	a1 := 1 // Int
 	a2 := 2.3 // Float
-	a3 := "hoge hoge !!" // Japanese string, lol
+	a3 := "ほげほげ !!!" // Japanese string, lol
 	a4 := 's' // Char, alias for int32, hold unicode code
 	a5 := `This is "quoted" string,
 	with new line and tab`
