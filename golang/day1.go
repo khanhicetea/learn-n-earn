@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt" // Formatting standard library
-	m "math" // Alias an imported lib
-	"strconv" // String conversion lib
-	"net/http"
 	"io/ioutil"
+	m "math" // Alias an imported lib
+	"net/http"
+	"strconv" // String conversion lib
 )
 
 func main() {
@@ -16,8 +16,8 @@ func main() {
 
 func moveIt() {
 	var x float64 // Declare variable
-	x = 3 // Assign it to a value
-	y := 4. // Declare and assign in 1-line
+	x = 3         // Assign it to a value
+	y := 4.       // Declare and assign in 1-line
 	fmt.Println(x, y, pythagore(x, y))
 
 	goToTypes()
@@ -32,15 +32,15 @@ func moveIt() {
 	fmt.Println("\n-------- THE END --------\n")
 }
 
-func pythagore(a float64, b float64) (float64) { // func [function name]( ...paramers ) (return types)
-	return m.Sqrt(a * a + b * b)
+func pythagore(a float64, b float64) float64 { // func [function name]( ...paramers ) (return types)
+	return m.Sqrt(a*a + b*b)
 }
 
 func goToTypes() {
-	a1 := 1 // Int
-	a2 := 2.3 // Float
+	a1 := 1          // Int
+	a2 := 2.3        // Float
 	a3 := "ほげほげ !!!" // Japanese string, lol
-	a4 := 's' // Char, alias for int32, hold unicode code
+	a4 := 's'        // Char, alias for int32, hold unicode code
 	a5 := `This is "quoted" string,
 	with new line and tab`
 	a6 := byte('\n') // ASCII char, uint8
@@ -52,16 +52,16 @@ func goToTypes() {
 	a7[1] = 23
 	a7[2] = 34
 
-	a8 := [...]int{1,1,2,3,5,8,13} // no need count array length to declare
+	a8 := [...]int{1, 1, 2, 3, 5, 8, 13} // no need count array length to declare
 	fmt.Println(a7, a8)
 
 	// Slices
-	a9 := []int{1,2,3}
+	a9 := []int{1, 2, 3}
 	a10 := make([]int, 3) // Allocate slide 3 ints, 0 intial value
 
-	var a11 [][]float64 // declare only
+	var a11 [][]float64    // declare only
 	a12 := []byte("hello") // convert string to slice of chars
-	
+
 	fmt.Println(a9, a10, a11, a12)
 
 	a9 = append(a9, 4, 5, 6) // append 3 items
@@ -76,12 +76,12 @@ func goToTypes() {
 	_ = a14 // Ignore by _ , unused variable cause error
 
 	a15 := map[string]int{
-		"one": 1,
-		"two": 2,
+		"one":   1,
+		"two":   2,
 		"there": 3,
 	}
 	a15["four"] = 4
-	
+
 	fmt.Println(a15, a15["two"])
 
 	a16, a17 := memoryZoo()
@@ -94,13 +94,13 @@ func memoryZoo() (a, b *int) {
 	o := 123
 
 	a = &s[3] // can assign to returned var
-	b = &o // & is ref memory address, like a pointer in C
+	b = &o    // & is ref memory address, like a pointer in C
 
 	return // no need pass returned vars here
 }
 
 func followTheFlow() {
-	if 1 + 1 == 2 {
+	if 1+1 == 2 {
 		fmt.Println("Hmm .. it must me 10 ! Ya know ;)")
 	}
 
@@ -152,7 +152,7 @@ func hmmmLikeClosure() {
 }
 
 func add(x int) func(y int) int {
-	return func (y int) int {
+	return func(y int) int {
 		return x + y
 	}
 }
@@ -186,18 +186,18 @@ func smashInterfaces() {
 	fmt.Println(p.String())
 
 	var i Stringer // Declare i as Stringer interface
-	i = p // Point implement Stringer interface
+	i = p          // Point implement Stringer interface
 	fmt.Println(i.String())
 }
 
 func learnVariadicParams(strings ...interface{}) {
-    // Iterate each value of the variadic.
-    for _, s := range strings {
-        fmt.Println("param :", s)
-    }
+	// Iterate each value of the variadic.
+	for _, s := range strings {
+		fmt.Println("param :", s)
+	}
 
-    // Pass variadic value as a variadic parameter.
-    fmt.Println("params :", fmt.Sprintln(strings...))
+	// Pass variadic value as a variadic parameter.
+	fmt.Println("params :", fmt.Sprintln(strings...))
 }
 
 func oopsSomethingWrong() {
@@ -221,7 +221,7 @@ func oopsSomethingWrong() {
 
 func goToWWW() {
 	go func() {
-		err:= http.ListenAndServe("127.0.0.1:8888", WebServer{"KhanhIceTea server"})
+		err := http.ListenAndServe("127.0.0.1:8888", &WebServer{"KhanhIceTea server"})
 		fmt.Println(err)
 	}()
 
@@ -232,7 +232,7 @@ type WebServer struct {
 	name string
 }
 
-func (ws WebServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (ws *WebServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello from "))
 	w.Write([]byte(ws.name))
 }
